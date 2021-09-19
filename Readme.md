@@ -2,7 +2,7 @@
 
 # 基于SimHash算法的文本相似度计算
 
-个人 GitHub：
+个人 GitHub：https://github.com/ORonaldinhoO/Software-Engineering/tree/master
 
 | 这个作业属于哪个课程 | https://edu.cnblogs.com/campus/gdgy/InformationSecurity1912-Softwareengineering |
 | -------------------- | ------------------------------------------------------------ |
@@ -81,7 +81,29 @@ SimHash算法是Google在2007年发表的论文《Detecting Near-Duplicates for 
 
 ### 接口设计与实现
 
+![软工第一次个人项目](Readme.assets/软工第一次个人项目.jpg)
 
+其中，考虑到部分测试样本中存在html格式的文本，对论文查重会有一定影响，因此实现一个采用正则表达式清除html格式的函数，即filter_html：
+
+```python
+def filter_html(html):
+    """
+    :param html: html
+    :return: 返回去掉html的纯净文本
+    """
+    dr = re.compile(r'<[^>]+>', re.S)  # 正则表达式
+    dd = dr.sub('', html).strip(' ')
+    dd = dd.split()  # split后得到列表
+    # print(dd)
+    doc = ''
+    for d in dd:
+        d = d.strip()
+        doc += d  # 字符串拼接
+
+    return doc
+```
+
+经测试，添加该函数后，论文查重率有较大提升，整体约提升18%。
 
 ### 接口性能改进
 
@@ -272,12 +294,14 @@ def cmd(write_path='unit_test.txt'):
 
 ## 参考文献
 
-[知乎：常见文本相似度计算方法简介]: https://zhuanlan.zhihu.com/p/88938220
+知乎：常见文本相似度计算方法简介 https://zhuanlan.zhihu.com/p/88938220
 
-[知乎：LSTM神经网络输入输出究竟是怎样的？]: https://www.zhihu.com/question/41949741/answer/318771336
-[知乎：Kaggle知识点：文本相似度计算方法]: https://zhuanlan.zhihu.com/p/349592491
-[CSDN：自然语言处理 | (30) 文本相似度计算与文本匹配问题]: https://blog.csdn.net/sdu_hao/article/details/95958293
-[CSDN：NLP语义相似度计算的两大类方法（内含DSMM介绍）]: https://blog.csdn.net/jaygle/article/details/80927732
+知乎：LSTM神经网络输入输出究竟是怎样的？https://www.zhihu.com/question/41949741/answer/318771336 
 
-[CSDN：用于文本去重的Simhash]: https://blog.csdn.net/qq_44418077/article/details/114389678
+知乎：Kaggle知识点：文本相似度计算方法 https://zhuanlan.zhihu.com/p/349592491 
 
+CSDN：自然语言处理 | (30) 文本相似度计算与文本匹配问题 https://blog.csdn.net/sdu_hao/article/details/95958293 
+
+CSDN：NLP语义相似度计算的两大类方法（内含DSMM介绍）https://blog.csdn.net/jaygle/article/details/80927732 
+
+CSDN：用于文本去重的Simhash https://blog.csdn.net/qq_44418077/article/details/114389678

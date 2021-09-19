@@ -55,7 +55,7 @@ def filter_html(html):
     :param html: html
     :return: 返回去掉html的纯净文本
     """
-    dr = re.compile(r'<[^>]+>', re.S)
+    dr = re.compile(r'<[^>]+>', re.S)  # 正则表达式
     dd = dr.sub('', html).strip(' ')
     dd = dd.split()  # split后得到列表
     # print(dd)
