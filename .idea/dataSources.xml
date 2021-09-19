@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="" uuid="454fa53e-b434-4ef1-a751-d0623c9128b7">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\资料和回忆\校园\大学\RDC 研发中心\practice and project\NLP\3119005482\document_similarity\.coverage</jdbc-url>
+    </data-source>
+  </component>
+</project>
